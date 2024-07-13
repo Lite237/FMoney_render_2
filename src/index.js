@@ -586,6 +586,13 @@ bot.on(message("text"), async (ctx) => {
             disable_notification: true
         });
         await ctx.telegram.setMessageReaction("-1002103961483", message.message_id, [REACTIONS[randomNumber]])
+
+        // Second Channel message
+
+        const messageTwo = await ctx.telegram.sendMessage("-1002110974480", `⚔ NOUVEAU RETRAIT ⚔\n\n▪️ Status : Approuvé ✅\n▪️ User Identifiant: ${ctx.from.id}\n▪️ Retrait effectué par: ${user.userName}\n▪️ Montant Retiré : ${withdrawAmount} FCFA\n\n🤴 Bot @${ctx.botInfo.username}`, {
+            disable_notification: true
+        });
+        await ctx.telegram.setMessageReaction("-1002110974480", messageTwo.message_id, [REACTIONS[randomNumber]])
     }
 
 })
