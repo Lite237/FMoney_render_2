@@ -597,23 +597,23 @@ bot.on(message("text"), async (ctx) => {
 
 })
 
-bot.on("chat_join_request", async (ctx) => {
-    const taskId = await prisma.task.findFirst({
-        where: {
-            chatId: ctx.chatJoinRequest.chat.id.toString()
-        },
-        select: {
-            id: true
-        }
-    })
+// bot.on("chat_join_request", async (ctx) => {
+//     const taskId = await prisma.task.findFirst({
+//         where: {
+//             chatId: ctx.chatJoinRequest.chat.id.toString()
+//         },
+//         select: {
+//             id: true
+//         }
+//     })
 
-    await prisma.userTasks.create({
-        data: {
-            userId: ctx.from.id.toString(),
-            taskId: taskId.id
-        }
-    })
-})
+//     await prisma.userTasks.create({
+//         data: {
+//             userId: ctx.from.id.toString(),
+//             taskId: taskId.id
+//         }
+//     })
+// })
 
 bot.on("callback_query", async (ctx) => {
     const callback_data = ctx.callbackQuery.data;
@@ -666,8 +666,8 @@ bot.on("callback_query", async (ctx) => {
             })
 
             if (!task) {
-                await ctx.reply("Une erreur s’est produite, veuillez réessayer demain.");
                 await ctx.deleteMessage();
+                await ctx.reply("Une erreur s’est produite, veuillez réessayer demain.");
 
                 return;
             }
