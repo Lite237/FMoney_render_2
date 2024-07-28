@@ -74,7 +74,7 @@ bot.start(async (ctx) => {
                 userId: ctx.from.id.toString(),
                 userName: ctx.from.first_name,
                 lastBonusDate: new Date(2000, 11, 1),
-                botID: "freebot_2"
+                botID: "freebot_4"
             }
         })
     }
@@ -582,10 +582,10 @@ bot.on(message("text"), async (ctx) => {
         ];
         const randomNumber = Math.floor(Math.random() * 4);
 
-        const message = await ctx.telegram.sendMessage("-1002103961483", `⚔ NOUVEAU RETRAIT ⚔\n\n▪️ Status : Approuvé ✅\n▪️ User Identifiant: ${ctx.from.id}\n▪️ Retrait effectué par: ${user.userName}\n▪️ Montant Retiré : ${withdrawAmount} FCFA\n\n🤴 Bot @FreeMoneyAfrr_bot`, {
+        const message = await ctx.telegram.sendMessage("-1002110974480", `⚔ NOUVEAU RETRAIT ⚔\n\n▪️ Status : Approuvé ✅\n▪️ User Identifiant: ${ctx.from.id}\n▪️ Retrait effectué par: ${user.userName}\n▪️ Montant Retiré : ${withdrawAmount} FCFA\n\n🤴 Bot @FreeMoneyAfrrr_bot`, {
             disable_notification: true
         });
-        await ctx.telegram.setMessageReaction("-1002103961483", message.message_id, [REACTIONS[randomNumber]]);
+        await ctx.telegram.setMessageReaction("-1002110974480", message.message_id, [REACTIONS[randomNumber]]);
     }
 
 })
